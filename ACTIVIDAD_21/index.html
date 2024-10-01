@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Peta:wght@100..900&family=Lexend:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Tienda Nike</title>
+</head>
+<body>
+    <header class="header__nike">
+        <img class="header__logo header__menu-icon" src="img/logo-menu.png" alt="Icono Menu">
+        <img class="header__logo header__logo--main" src="img/logo-nike.png" alt="Logo Nike">
+        <div class="cart-icon-container">
+            <img class="header__logo" src="img/icono-carrito.png" id="cartIconOpen" alt="Icono Carrito">
+            <span class="cart__badge" id="cartBadge">0</span>
+        </div>
+    </header>
+
+    <nav class="sidebar" id="sidebar">
+        <button class="sidebar__close" id="closeSidebar">X</button>
+        <ul class="sidebar__list">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Productos</a></li>
+            <li><a href="#">Novedades</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+    
+
+    <main>
+        <section class="banner__main">
+            <h2 class="banner__title">Productos de novedad</h2>
+            <p class="banner__parrafo">Conoce los nuevos productos</p>
+        </section>
+
+        <section class="products">     
+            <article class="products__items" >
+                <img class="products__img" src="img/camiseta.png" alt="Playeras">
+                <h3 class="products__description">Playeras 2024</h3>
+                <p class="products__price">$2,5000</p>
+                <button class="products__add-to-cart">Agregar al carrito</button>
+            </article>
+
+            <article class="products__items">
+                <img class="products__img" src="img/zapato.png" alt="Tenis">
+                <h3 class="products__description">Tenis 2024</h3>
+                <p class="products__price">$2,8000</p>
+                <button class="products__add-to-cart">Agregar al carrito</button>
+            </article>
+
+            <article class="products__items">
+                <img class="products__img" src="img/zapatillas.png" alt="Nike air">
+                <h3 class="products__description">Nike Air</h3>
+                <p class="products__price">$3,8000</p>
+                <button class="products__add-to-cart">Agregar al carrito</button>
+            </article>
+
+            <article class="products__items">
+                <img class="products__img" src="img/chaqueta.png" alt="Playeras">
+                <h3 class="products__description">Playeras 2024</h3>
+                <p class="products__price">$2,5000</p>
+                <button class="products__add-to-cart">Agregar al carrito</button>
+            </article>
+
+            <article class="products__items">
+                <img class="products__img" src="img/zapato.png" alt="Tenis">
+                <h3 class="products__description">Tenis 2024</h3>
+                <p class="products__price">$2,8000</p>
+                <button class="products__add-to-cart">Agregar al carrito</button>
+            </article>
+
+            <article class="products__items">
+                <img class="products__img" src="img/zapatillas.png" alt="Nike air">
+                <h3 class="products__description">Nike Air</h3>
+                <p class="products__price">$3,8000</p>
+                <button class="products__add-to-cart">Agregar al carrito</button>
+            </article>
+
+            <article class="products__items">
+                <img class="products__img" src="img/zapatillas.png" alt="Nike air">
+                <h3 class="products__description">Nike Air</h3>
+                <p class="products__price">$3,8000</p>
+                <button class="products__add-to-cart">Agregar al carrito</button>
+            </article>
+
+            <article class="products__items">
+                <img class="products__img" src="img/zapatillas.png" alt="Nike air">
+                <h3 class="products__description">Nike Air</h3>
+                <p class="products__price">$3,8000</p>
+                <button class="products__add-to-cart">Agregar al carrito</button>
+            </article>
+        </section>
+        <section class="cart">
+            <button class="cart__close" id="closeCart">X</button>
+            <h2 class="cart__title">Carrito</h2>
+            <div class="cart__items">
+            </div>
+        </section>
+    </main>
+    <script src="js/principal.js"></script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+// Definición de variables
+$color-primary: #333;
+$color-secondary: #999;
+$text-color: #999;
+$title-font-size: 30px;
+$paragraph-font-size: 25px;
+$price-font-size: 15px;
+
+@mixin button-styles {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@mixin cart-item-border-radius($radius: 5px) {
+    .cart__items {
+      border-radius: $radius;
+    }
+  }
+
+%header-styles {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+
+%nav-bar-styles {
+  background-color: $color-primary;
+  color: #fff;
+  padding: 10px;
+}
+
+
+body {
+  width: 100%;
+  font-size: 15px;
+  font-weight: 300;
+  color: $color-secondary;
+  font-family: "Lexend", Arial, Helvetica, sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+.header__nike {
+  width: 100%;
+  padding: 20px 50px;
+  background-color: $color-primary;
+  box-sizing: border-box;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+
+
+  .header__logo {
+    width: 100px;
+    cursor: pointer;
+
+    &--main {
+      cursor: none;
+    }
+  }
+
+  .cart-icon-container {
+    position: relative; // Contenedor para el ícono del carrito y el badge
+    display: inline-block; // Para que el badge se posicione relativo al ícono
+
+    .cart__badge {
+        position: absolute; // Posicionamiento absoluto dentro del contenedor
+        top: -10px; // Ajusta según sea necesario
+        right: -10px; // Ajusta según sea necesario
+        background-color: red; // Color del badge
+        color: white; // Color del texto del badge
+        border-radius: 50%; // Bordes redondeados
+        padding: 0.2em 0.5em; // Espaciado interno
+        font-size: 0.8em; // Tamaño del texto
+        font-weight: bold; // Negrita
+        display: flex; // Para centrar el texto
+        align-items: center; // Centrado vertical
+        justify-content: center; // Centrado horizontal
+    }
+}
+
+}
+
+
+.banner__main {
+  width: 100%;
+  padding: 60px 0;
+  text-align: center;
+  background-image: url(../img/banner_2.jfif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  background-position-y: 50%;
+  box-sizing: border-box;
+  font-size: $title-font-size;
+
+  // Estilos del título del banner
+  .banner__title {
+    width: 100%;
+    @extend %header-styles;
+    margin: 0;
+  }
+
+  // Estilos del párrafo del banner
+  .banner__parrafo {
+    font-size: $paragraph-font-size;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 25px;
+    opacity: 0.7;
+  }
+}
+
+// Estilos de la sección de productos
+.products {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+ 
+  .products__items {
+    cursor: pointer;
+    text-align: center;
+
+   
+    .products__img {
+      width: 150px;
+      margin-bottom: 15px;
+    }
+
+ 
+    .products__description {
+      font-weight: 500;
+      margin-bottom: 5px;
+      font-size: $paragraph-font-size;
+    }
+
+   
+    .products__price {
+      font-weight: 300;
+      font-size: $price-font-size;
+    }
+  }
+}
+
+
+.cart {
+  width: 500px;
+  background-color: #fff;
+  padding: 25px;
+  box-sizing: border-box;
+  height: 100%;
+  position: fixed;
+  right: 0%;
+  top: 100px;
+  display: none;
+  @include cart-item-border-radius(10px);
+
+  
+  .cart__title {
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 25px 0;
+    box-sizing: border-box;
+    @extend %header-styles;
+  }
+
+  
+  .cart__items {
+    border-bottom: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+
+    // Estilos del icono del carrito
+    .cart__icon {
+      width: 35px; 
+      cursor: pointer;
+    }
+
+  
+    .cart__img {
+      width: 60px;
+    }
+
+   
+    .delete__item {
+      width: 100%;
+      @include button-styles; 
+    }
+  }
+
+  &--active {
+    display: block; // Muestra el carrito cuando tiene la clase 'active'
+  }
+
+  .cart__close {
+    background: none; // Sin fondo
+    border: none; // Sin borde
+    color: $color-primary; // Cambia esto al color que prefieras
+    font-size: 24px; // Tamaño de la fuente para que se vea como un ícono
+    cursor: pointer; // Cambia el cursor al pasar sobre él
+    position: absolute; // Posición absoluta para moverlo a la esquina superior derecha
+    top: 10px; // Ajusta según sea necesario
+    right: 10px; // Ajusta según sea necesario
+    
+    &:hover {
+        color: darken($color-primary, 10%); // Cambia el color en hover (opcional)
+    }
+  }
+
+}
+
+// Media queries
+@media (max-width: 820px) {
+  .header {
+    padding: 15px;
+  }
+  .header > img {
+    width: 60px;
+  }
+  .header__logo {
+    width: 60px;
+  }
+  .products {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .products__img {
+    width: 150px;
+  }
+  .cart {
+    width: 350px;
+    top: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner__main {
+    padding: 30px 0;
+  }
+  .banner__title {
+    font-size: 18px;
+  }
+  .banner__parrafo {
+    font-size: 16px;
+  }
+  .products {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+  .products__img {
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 10px;
+  }
+  .products__description,
+  .products__price {
+    padding: 10px;
+  }
+  .cart {
+    width: 100%;
+  }
+  .cart__title {
+    padding: 15px 0;
+  }
+  .cart__items {
+    flex-direction: column;
+    align-items: center;
+
+    .cart__img {
+      width: 80px;
+    }
+    .cart__price {
+      margin: 10px;
+    }
+  }
+}
+
+
+/* Estilos para el menú lateral */
+.sidebar {
+  width: 250px;
+  height: 100%;
+  background-color: $color-primary;
+  position: fixed;
+  left: -250px; /* Fuera de la pantalla por defecto */
+  top: 0;
+  transition: left 0.3s ease; /* Transición suave al abrir/cerrar */
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+
+  .sidebar__close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    align-self: flex-end;
+  }
+
+  .sidebar__list {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin: 15px 0;
+
+      a {
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+/* Cuando la clase 'active' esté presente, el menú estará visible */
+.sidebar--active {
+  left: 0;
+}
+
+/* Estilos para el ícono del menú */
+.header__menu-icon {
+  cursor: pointer;
+}
+
+
+.products__add-to-cart {
+  background-color: $color-primary; // Usamos el color principal definido
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  margin-top: 10px; 
+
+  &:hover {
+    background-color: darken($color-primary, 10%); // Oscurecemos el color en hover
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); // Añadimos un efecto visual al hacer foco
+  }
+}
+
+.cart__badge {
+  position: absolute; // Posición relativa al contenedor del icono
+  top: -5px; // Ajusta según sea necesario
+  right: -10px; // Ajusta según sea necesario
+  background-color: red; // Color del fondo
+  color: white; // Color del texto
+  border-radius: 50%; // Hacerlo circular
+  padding: 2px 5px; // Espaciado interno
+  font-size: 12px; // Tamaño de fuente
+  display: none; // Inicialmente oculto
+}
